@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mobileapplication11.R
 import com.example.mobileapplication11.databinding.FragmentProfileBinding
 import com.example.mobileapplication11.models.Highlights
-import com.example.mobileapplication11.adapters.HighlightsAdapter
+import com.example.mobileapplication11.adapters.StoriesAdapter
 import com.example.mobileapplication11.adapters.ViewPagerAdapter
 import com.example.mobileapplication11.onBoarding.SignInFragment
 import com.example.mobileapplication11.profile.profileFragments.MainUserPostsFragment
@@ -23,7 +23,7 @@ class ProfileFragment : Fragment() {
 
     private lateinit var binding : FragmentProfileBinding
 
-    private lateinit var adapter: HighlightsAdapter
+    private lateinit var adapter: StoriesAdapter
 
     private val fList = listOf(
         MainUserPostsFragment.newInstance(),
@@ -55,7 +55,7 @@ class ProfileFragment : Fragment() {
     private fun initRV() = with(binding) {
         rvHighlights.layoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        adapter = HighlightsAdapter()
+        adapter = StoriesAdapter()
         rvHighlights.adapter = adapter
 
         val list = listOf(

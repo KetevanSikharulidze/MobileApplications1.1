@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
@@ -13,11 +13,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@android:drawable/sym_def_app_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearanceOverlay="@style/circleImageView" />
+
+    <ImageButton
+        android:id="@+id/btnAddNewStory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/ivStory"
+        app:layout_constraintEnd_toEndOf="@+id/ivStory"
+        app:srcCompat="@drawable/ic_add" />
 
     <TextView
         android:id="@+id/tvHText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="highlight 1" />
-</LinearLayout>
+        android:text="highlight 1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/ivStory"
+        app:layout_constraintStart_toStartOf="@+id/ivStory"
+        app:layout_constraintTop_toBottomOf="@+id/ivStory" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mobileapplication11.adapters.HighlightsAdapter
+import com.example.mobileapplication11.adapters.StoriesAdapter
 import com.example.mobileapplication11.adapters.PostsAdapter
 import com.example.mobileapplication11.databinding.FragmentHomePostsBinding
 import com.example.mobileapplication11.models.Highlights
@@ -16,7 +16,7 @@ class HomePostsFragment : Fragment() {
 
     private lateinit var binding : FragmentHomePostsBinding
     private lateinit var postsAdapter: PostsAdapter
-    private lateinit var storiesAdapter: HighlightsAdapter
+    private lateinit var storiesAdapter: StoriesAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,7 +36,7 @@ class HomePostsFragment : Fragment() {
 
     private fun initStoriesRcView() = with(binding){
         rvStories.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        storiesAdapter = HighlightsAdapter()
+        storiesAdapter = StoriesAdapter()
         rvStories.adapter = storiesAdapter
         val list = listOf(
             Highlights("","friend1"),
