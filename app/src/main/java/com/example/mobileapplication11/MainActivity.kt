@@ -3,6 +3,7 @@ package com.example.mobileapplication11
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mobileapplication11.fragments.MainFragment
+import com.example.mobileapplication11.onBoarding.SignUpFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -10,7 +11,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.placeHolder, MainFragment.newInstance())
+            .replace(R.id.placeHolder, SignUpFragment.newInstance())
             .commit()
     }
+
 }

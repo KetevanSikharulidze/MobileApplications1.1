@@ -7,13 +7,17 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mobileapplication11.R
 import com.example.mobileapplication11.databinding.FragmentProfileBinding
 import com.example.mobileapplication11.models.Highlights
 import com.example.mobileapplication11.adapters.HighlightsAdapter
 import com.example.mobileapplication11.adapters.ViewPagerAdapter
+import com.example.mobileapplication11.onBoarding.SignInFragment
 import com.example.mobileapplication11.profile.profileFragments.MainUserPostsFragment
 import com.example.mobileapplication11.profile.profileFragments.MainUserTaggedFragment
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 
 class ProfileFragment : Fragment() {
 
@@ -36,9 +40,15 @@ class ProfileFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding){
         super.onViewCreated(view, savedInstanceState)
-        init()
+
+        btnSignOut.setOnClickListener {
+            Firebase.auth.signOut()
+            parentFragmentManager.beginTransaction().replace(R.id.FragmentProfile,SignInFragment.newInstance()).commit()
+        }
+
+        initVP()
         initRV()
     }
 
@@ -63,7 +73,7 @@ class ProfileFragment : Fragment() {
         adapter.submitList(list)
     }
 
-    private fun init() = with(binding) {
+    private fun initVP() = with(binding) {
         val adapter = ViewPagerAdapter(activity as FragmentActivity, fList)
         viewPager.adapter= adapter
         TabLayoutMediator(tabLayout, viewPager){ tab, position ->
