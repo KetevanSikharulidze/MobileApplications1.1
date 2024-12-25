@@ -11,7 +11,7 @@ import com.example.mobileapplication11.R
 import com.example.mobileapplication11.databinding.ItemStoryBinding
 import com.example.mobileapplication11.models.Highlights
 
-class StoriesAdapter : ListAdapter<Highlights, StoriesAdapter.Holder>(Comparator()) {
+class StoriesAdapter(private val showAddButtonForFirstItem: Boolean) : ListAdapter<Highlights, StoriesAdapter.Holder>(Comparator()) {
 
     companion object {
         private const val TYPE_FIRST_ITEM = 0
@@ -21,8 +21,8 @@ class StoriesAdapter : ListAdapter<Highlights, StoriesAdapter.Holder>(Comparator
     class Holder(view: View): RecyclerView.ViewHolder(view){
         val binding = ItemStoryBinding.bind(view)
 
-        fun bind(item: Highlights, position: Int)= with(binding){
-            if (position == 0){
+        fun bind(item: Highlights, position: Int, showAddButton: Boolean)= with(binding){
+            if (position == 0 && showAddButton){
                 btnAddNewStory.visibility = View.VISIBLE
                 btnAddNewStory.setOnClickListener {
                     Toast.makeText(itemView.context, "Add button clicked!", Toast.LENGTH_SHORT).show()
@@ -57,7 +57,7 @@ class StoriesAdapter : ListAdapter<Highlights, StoriesAdapter.Holder>(Comparator
         return if (position == 0) TYPE_FIRST_ITEM else TYPE_NORMAL_ITEM
     }
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.bind(getItem(position),position)
+        holder.bind(getItem(position),position, showAddButtonForFirstItem)
     } // ავსებთ
 
 }

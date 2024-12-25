@@ -36,7 +36,7 @@ class HomePostsFragment : Fragment() {
 
     private fun initStoriesRcView() = with(binding){
         rvStories.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        storiesAdapter = StoriesAdapter()
+        storiesAdapter = StoriesAdapter(true)
         rvStories.adapter = storiesAdapter
         val list = listOf(
             Highlights("","friend1"),

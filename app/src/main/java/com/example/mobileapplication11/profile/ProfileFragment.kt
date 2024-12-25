@@ -55,7 +55,7 @@ class ProfileFragment : Fragment() {
     private fun initRV() = with(binding) {
         rvHighlights.layoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        adapter = StoriesAdapter()
+        adapter = StoriesAdapter(false)
         rvHighlights.adapter = adapter
 
         val list = listOf(
