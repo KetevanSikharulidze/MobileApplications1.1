@@ -3,6 +3,7 @@ package com.example.mobileapplication11.adapters
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
 
 class ViewPagerAdapter(f : FragmentActivity, val fList: List<Fragment>) : FragmentStateAdapter(f){
 

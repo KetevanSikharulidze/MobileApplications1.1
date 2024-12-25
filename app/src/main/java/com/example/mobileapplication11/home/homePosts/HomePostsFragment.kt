@@ -26,10 +26,12 @@ class HomePostsFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding){
         super.onViewCreated(view, savedInstanceState)
         initPostsRcView()
         initStoriesRcView()
+        rvStories.isNestedScrollingEnabled = false
+        rvHomePosts.isNestedScrollingEnabled = false
     }
 
     private fun initStoriesRcView() = with(binding){

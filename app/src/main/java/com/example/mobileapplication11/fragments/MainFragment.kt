@@ -26,7 +26,7 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loadFragment(HomePostsFragment.newInstance())
+        loadFragment(HomeFragment.newInstance())
         bottomNavigationListener()
     }
 
@@ -34,7 +34,7 @@ class MainFragment : Fragment() {
         bottomNavigationMenu.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.home -> {
-                    loadFragment(HomePostsFragment.newInstance())
+                    loadFragment(HomeFragment.newInstance())
                     true
                 }
                 R.id.search -> {
